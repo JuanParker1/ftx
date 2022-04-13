@@ -1,14 +1,15 @@
-import * as React from "react";
-import "../css/index.css";
+import React from "react";
+import AppProtected from "../common/AppProtected";
+import AppThemeProvider from "../components/ThemeProvider";
 
-// markup
-const App = () => {
+
+function App() {
   return (
     <main>
       <title>Home Page</title>
-      <div>
-        gatsby
-      </div>
+      <AppThemeProvider>
+        <AppProtected />
+      </AppThemeProvider>
     </main>
   );
 };
