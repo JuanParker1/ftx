@@ -1,25 +1,13 @@
 import React from "react";
-import AppProtected from "../common/AppProtected";
-import { StyledEngineProvider } from "@mui/material";
-import AppThemeProvider from "../components/ThemeProvider";
+import HomeHero from "../common/HomeHero";
+import Layout from "../common/Layout";
 
-import "../style/index.css";
-
-function App() {
+function Home() {
   return (
-    <main>
-      <title>Home Page</title>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      />
-      <StyledEngineProvider injectFirst>
-        <AppThemeProvider>
-          <AppProtected />
-        </AppThemeProvider>
-      </StyledEngineProvider>
-    </main>
+    <Layout>
+      <HomeHero />
+    </Layout>
   );
 }
 
-export default App;
+export default Home;

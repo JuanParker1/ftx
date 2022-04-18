@@ -19,11 +19,13 @@ function Navbar(props) {
             </Typography>
           </Box>
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="text" className="text-white">
+            <Button variant="text">
               Login
             </Button>
             <Button variant="contained">Register</Button>
-            <Icon>settings</Icon>
+            <IconButton className="text-black">
+              <Icon>settings</Icon>
+            </IconButton>
           </div>
           <IconButton
             onClick={toggleSidebar}

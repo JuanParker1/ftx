@@ -1,5 +1,14 @@
 /* @tailwind base; */
-
 @tailwind components;
-
 @tailwind utilities;
+
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    background-color: #0A0E17;
+}
