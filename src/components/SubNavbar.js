@@ -7,17 +7,18 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { Icon, IconButton } from "@mui/material";
 
-function Navbar(props) {
+function SubNavbar(props) {
   const { toggleSidebar } = props;
   return (
-    <AppBar position="fixed" className="bg-white">
+    <AppBar position="fixed" className="bg-black top-[56px]">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box className="grow">
-            <Typography variant="h6" component="div" className="text-black">
-              LOGO
-            </Typography>
-          </Box>
+          <IconButton
+            onClick={toggleSidebar}
+            className="flex md:hidden text-white"
+          >
+            <Icon>menu</Icon>
+          </IconButton>
           <div className="hidden md:flex items-center gap-3">
             <Button variant="text" className="text-white">
               Login
@@ -25,15 +26,9 @@ function Navbar(props) {
             <Button variant="contained">Register</Button>
             <Icon>settings</Icon>
           </div>
-          <IconButton
-            onClick={toggleSidebar}
-            className="flex md:hidden text-black"
-          >
-            <Icon>menu</Icon>
-          </IconButton>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
-export default Navbar;
+export default SubNavbar;
