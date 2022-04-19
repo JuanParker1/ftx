@@ -31,7 +31,7 @@ function HomeHero() {
           </CarouselSlide>
         ))}
       </Carousel>
-      <div className="flex justify-between w-full absolute top-[50px] md:top-[100px] lg:top-[150px] xl:top-[200px] px-4 md:px-8">
+      <div className="flex justify-between w-full absolute top-[50px] md:top-[100px] lg:top-[150px] xl:top-[270px] px-4 md:px-8">
         <div className="bg-[#494949] rounded-full">
           <IconButton
             className="text-white"
