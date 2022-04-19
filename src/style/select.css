@@ -1,0 +1,6 @@
+.Select {
+}
+
+.Select__select {
+  @apply bg-transparent flex-1 outline-none self-center text-label;
+}

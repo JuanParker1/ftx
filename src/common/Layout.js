@@ -30,7 +30,7 @@ function Layout(props) {
             isSidebar={isSidebar}
             toggleSidebar={toggleSidebarNavigation}
           />
-          <main className="mt-[100px] overflow-y-auto min-w-0">{children}</main>
+          <main className="mt-[100px] overflow-hidden min-w-0">{children}</main>
         </AppThemeProvider>
       </StyledEngineProvider>
     </div>

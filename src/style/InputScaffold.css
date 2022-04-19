@@ -1,0 +1,35 @@
+.InputScaffold {
+    @apply inline-block;
+}
+
+.InputScaffold.InputScaffold--gutter-bottom {
+    @apply mb-4;
+}
+
+.InputScaffold.InputScaffold--fullWidth {
+    @apply w-full block;
+}
+
+.InputScaffold__label {
+    @apply text-label text-primary block mb-1;
+}
+
+.InputScaffold__input {
+    @apply bg-primary-shade2 flex justify-center gap-2 text-label text-dark px-4 rounded-lg;
+}
+
+.InputScaffold__input--small {
+    min-height: 40px;
+}
+
+.InputScaffold__input--medium {
+    min-height: 48px;
+}
+
+.InputScaffold__input--large {
+    min-height: 56px;
+}
+
+.InputScaffold__input:focus-within {
+    @apply ring-primary;
+}
