@@ -8,7 +8,7 @@ import { Icon, IconButton } from "@mui/material";
 import MenuButton from "./MenuButton";
 
 function Navbar(props) {
-  const { toggleSidebar } = props;
+  const { toggleSidebar, toggleLoginDialog } = props;
 
   return (
     <AppBar position="fixed" className="bg-white">
@@ -31,8 +31,10 @@ function Navbar(props) {
             </div>
           </div>
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="text">Login</Button>
-            <Button variant="contained">Register</Button>
+            <Button variant="text" onClick={toggleLoginDialog}>
+              Login
+            </Button>
+            <Button variant="contained">Create a free account</Button>
             <IconButton className="text-black">
               <Icon>settings</Icon>
             </IconButton>

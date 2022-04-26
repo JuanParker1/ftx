@@ -109,7 +109,7 @@ function customizeComponents(theme) {
       MuiTextField: {
         defaultProps: {
           variant: "outlined",
-          InputLabelProps: { shrink: true },
+          // InputLabelProps: { shrink: true },
         },
         styleOverrides: {
           root: {
@@ -132,9 +132,9 @@ function customizeComponents(theme) {
             //     },
             // },
 
-            "& .MuiOutlinedInput-notchedOutline": {
-              "& legend": { maxWidth: 0 },
-            },
+            // "& .MuiOutlinedInput-notchedOutline": {
+            //   "& legend": { maxWidth: 0 },
+            // },
 
             "& .MuiInputBase-root:not(.Mui-disabled)": {
               backgroundColor: theme.palette.primary.shade2,

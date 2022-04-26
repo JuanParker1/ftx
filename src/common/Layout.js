@@ -8,7 +8,7 @@ import AppThemeProvider from "../components/ThemeProvider";
 import "../style/index.css";
 
 function Layout(props) {
-  const { children } = props;
+  const { children, toggleLoginDialog } = props;
   const [isSidebar, setIsSidebar] = useState(false);
 
   const toggleSidebarNavigation = () => {
@@ -24,7 +24,10 @@ function Layout(props) {
       />
       <StyledEngineProvider injectFirst>
         <AppThemeProvider>
-          <Navbar toggleSidebar={toggleSidebarNavigation} />
+          <Navbar
+            toggleLoginDialog={toggleLoginDialog}
+            toggleSidebar={toggleSidebarNavigation}
+          />
           <SubNavbar />
           <Sidebar
             isSidebar={isSidebar}
