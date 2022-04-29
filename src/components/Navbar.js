@@ -19,8 +19,9 @@ function Navbar(props) {
               LOGO
             </Typography>
             <div className="gap-3 hidden md:flex">
-              {MENU_ITEMS.map((menu) => (
+              {MENU_ITEMS.map((menu, key) => (
                 <MenuButton
+                  key={key}
                   variant="text"
                   label={menu.label}
                   endIcon={

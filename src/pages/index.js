@@ -1,9 +1,13 @@
 import React from "react";
+import clsx from "clsx";
+import { useFormik } from "formik";
 import Layout from "../common/Layout";
 import Icon from "@mui/material/Icon";
+import { useMutation } from "react-query";
 import Button from "@mui/material/Button";
 import HomeHero from "../common/HomeHero";
 import AuthLogin from "../common/AuthLogin";
+import { loginApi } from "../lib/httpClient";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
@@ -18,6 +22,22 @@ function Home() {
   const toggleLoginDialog = () => {
     setLoginDialog((prev) => !prev);
   };
+
+  const loginMutation = useMutation((data) => loginApi(data), {
+    onSuccess: (res) => {
+      console.log(res);
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: (value) => {
+      loginMutation.mutate(value);
+    },
+  });
 
   return (
     <Layout toggleLoginDialog={toggleLoginDialog}>
@@ -75,19 +95,54 @@ function Home() {
         </Container>
       </div>
       <Container>
-        <div className="text-white text-center my-4">
-          <Typography className="underline underline-offset-4 font-extrabold">
-            FEATURED SERVICES
-          </Typography>
+        <div className="text-white text-center my-16">
+          <Typography className="font-extrabold">FEATURED SERVICES</Typography>
           <Typography className="font-bold">
             A Company that list wallets, exchanges and other crypto related
             infomation.
           </Typography>
-        </div>
-        <div className="text-white text-center my-4">
-          <Typography className="underline underline-offset-4 font-extrabold">
-            INVESTMENT PLAN
+          <Typography className="text-sm mt-2">
+            Since its establishment, FTX has shown commendably successful and
+            consistent performance and trading history. Currently, it is
+            regarded as one of the best, most beneficial, brilliantly successful
+            companies in the industry of forex trading and investing.
           </Typography>
+        </div>
+        <div className="text-white text-center my-16">
+          <Typography className="font-extrabold">HOW IT WORKS</Typography>
+          <Typography>
+            Here are some easy steps to start an <strong>INVESTMENT</strong>{" "}
+            with us.
+          </Typography>
+          <Typography className="text-sm mt-2">
+            We are here because we are passionate about open, transparent
+            markets and aim to be a major driving force in widespread adoption,
+            we are the first and the best in cryptocurrency
+          </Typography>
+        </div>
+        <div className="grid grid-cols-2 place-items-center gap-5">
+          {[
+            "group_add",
+            "admin_panel_settings",
+            "currency_exchange",
+            "moving",
+          ].map((label, index) => (
+            <div
+              key={index}
+              className={clsx(
+                "text-black bg-white rounded-full p-8 flex justify-center items-center flex-col col-span-2 sm:col-span-1",
+                {
+                  ["md:place-self-start"]: index === 1 || index === 3,
+                  ["md:place-self-end"]: index === 0 || index === 2,
+                }
+              )}
+            >
+              <Icon style={{ fontSize: 100 }}>{label}</Icon>
+            </div>
+          ))}
+        </div>
+        <div className="text-white text-center my-16">
+          <Typography className="font-extrabold">INVESTMENT PLAN</Typography>
           <Typography className="font-bold">
             We offer the best prices for you!
           </Typography>
@@ -97,10 +152,11 @@ function Home() {
             business’s marketing plan.
           </Typography>
         </div>
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 gap-7 mb-8 md:place-items-center ">
           {INVESTMENT_PLAN.map((item, index) => (
             <InvestmentCard
               key={index}
+              index={index}
               min={item.min}
               max={item.max}
               label={item.label}
@@ -111,6 +167,7 @@ function Home() {
         </div>
       </Container>
       <AuthLogin
+        formik={formik}
         openLoginDialog={openLoginDialog}
         toggleLoginDialog={toggleLoginDialog}
       />

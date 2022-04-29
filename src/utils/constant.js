@@ -29,4 +29,11 @@ export const INVESTMENT_PLAN = [
     min: "100",
     max: "999",
   },
+  {
+    label: "DIAMOND PLAN",
+    percent: "100%",
+    period: "24hrs",
+    min: "100",
+    max: "999",
+  },
 ];

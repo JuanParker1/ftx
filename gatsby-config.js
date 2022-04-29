@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `FTX`,
@@ -8,6 +12,12 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
+    // {
+    //   resolve: `gatsby-source-custom`,
+    //   options: {
+    //     apiKey: process.env.API_KEY,
+    //   },
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {

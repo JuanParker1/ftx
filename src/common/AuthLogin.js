@@ -9,7 +9,7 @@ import DialogContent from "@mui/material/DialogContent";
 import InputAdornment from "@mui/material/InputAdornment";
 
 export default function AuthLoginDialog(props) {
-  const { openLoginDialog, toggleLoginDialog } = props;
+  const { openLoginDialog, toggleLoginDialog, formik } = props;
   const [isVisible, setVisible] = React.useState(false);
   const handleVisible = () => {
     setVisible((p) => !p);
@@ -24,19 +24,23 @@ export default function AuthLoginDialog(props) {
     >
       <DialogTitle className="text-center">Logo</DialogTitle>
       <DialogContent>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-col gap-4 mt-3">
             <TextField
               fullWidth
               type="email"
               label="Email Address"
               variant="outlined"
+              value={formik.values.email}
+              onChange={formik.handleChange("email")}
             />
             <TextField
               fullWidth
               type={isVisible ? "text" : "password"}
               label="Password"
               variant="outlined"
+              value={formik.values.password}
+              onChange={formik.handleChange("password")}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -47,7 +51,7 @@ export default function AuthLoginDialog(props) {
                 ),
               }}
             />
-            <Button>Log in</Button>
+            <Button type="submit">Log in</Button>
           </div>
         </form>
       </DialogContent>

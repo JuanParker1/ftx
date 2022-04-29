@@ -11,7 +11,7 @@ function MenuButton(props) {
   return (
     <div>
       <Button {...rest}>{label}</Button>
-      <StyledMenu>{children}</StyledMenu>
+      <StyledMenu open={false}>{children}</StyledMenu>
     </div>
   );
 }

@@ -17,8 +17,8 @@ function SubNavbar(props) {
               <Icon>menu</Icon>
             </IconButton>
             <div className="flex gap-3">
-              {MENU_ITEMS.map((menu) => (
-                <Button variant="text" className="text-white">
+              {MENU_ITEMS.map((menu, key) => (
+                <Button key={key} variant="text" className="text-white">
                   {menu.label}
                 </Button>
               ))}
